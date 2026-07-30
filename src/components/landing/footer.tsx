@@ -1,7 +1,10 @@
-import { AudioLines } from "lucide-react";
+import { AudioLines, ArrowUp } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 
 export function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <footer className="relative mt-10 border-t border-glass-border">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
@@ -41,21 +44,20 @@ export function Footer() {
               Terms of Service
             </a>
             <a
-              href="https://github.com/techbros9694-cpu"
+              href="https://github.com/ai-playground-arc-1"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-foreground font-medium"
             >
-              TechBros GitHub
+              AI Playground ARC GitHub
             </a>
-            <a
-              href="https://github.com/techbros9694-cpu/youtube-to-mp3-opensource"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-foreground"
+            <button
+              onClick={scrollToTop}
+              className="inline-flex items-center gap-1 hover:text-foreground font-medium text-brand transition-colors cursor-pointer"
             >
-              GitHub Codebase
-            </a>
+              <span>Back to top</span>
+              <ArrowUp className="h-3.5 w-3.5" />
+            </button>
           </div>
         </div>
       </div>

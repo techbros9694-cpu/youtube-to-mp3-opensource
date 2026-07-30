@@ -1,44 +1,22 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { 
   Users, 
   Sparkles, 
   Target, 
   Github, 
-  Download, 
   Code2, 
   ExternalLink, 
-  Copy, 
   Check, 
   Zap, 
   ShieldCheck, 
   Heart,
   Compass,
-  AudioLines
+  AudioLines,
+  Globe
 } from "lucide-react";
 import { AmbientBackground } from "./ambient-background";
 
 export function AboutUs() {
-  const [copiedCmd, setCopiedCmd] = useState(false);
-
-  const cloneCommand = "git clone https://github.com/techbros9694-cpu/youtube-to-mp3-opensource.git";
-
-  const handleCopyCommand = () => {
-    navigator.clipboard.writeText(cloneCommand);
-    setCopiedCmd(true);
-    setTimeout(() => setCopiedCmd(false), 2000);
-  };
-
-  const handleDownloadCodebase = () => {
-    const link = document.createElement("a");
-    link.href = "https://github.com/techbros9694-cpu/youtube-to-mp3-opensource/archive/refs/heads/main.zip";
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
     <section className="relative w-full min-h-screen pt-32 pb-16 sm:pt-40 sm:pb-24 overflow-hidden">
       {/* Full-width Ambient Background */}
@@ -231,78 +209,72 @@ export function AboutUs() {
           </div>
         </div>
 
-        {/* GitHub Codebase Download Box */}
+        {/* AI Playground ARC Organization Box */}
         <div className="rounded-3xl border border-glass-border bg-glass p-6 backdrop-blur-xl sm:p-8 space-y-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="space-y-1">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+            <div className="space-y-3 max-w-2xl">
               <div className="inline-flex items-center gap-2 text-xs font-medium text-brand">
                 <Code2 className="h-4 w-4" />
-                <span>Open Source Repository</span>
+                <span>Open Source Organization</span>
               </div>
-              <h3 className="text-xl font-semibold text-foreground">Codebase & Downloads</h3>
-              <p className="text-sm text-muted-foreground">
-                Download the complete codebase or explore the source repository on GitHub.
-              </p>
+              <h3 className="text-2xl font-bold text-foreground">AI Playground ARC</h3>
+              
+              <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
+                <p>
+                  AI Playground ARC is an open-source software organization dedicated to building modern, high-quality, and community-driven applications.
+                </p>
+                <p>
+                  We focus on creating innovative tools, web applications, AI-powered products, and developer resources that are clean, reliable, and accessible to everyone.
+                </p>
+                <p>
+                  Our mission is to encourage collaboration, continuous learning, and the development of impactful open-source projects.
+                </p>
+              </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3">
-              <button
-                onClick={handleDownloadCodebase}
-                className="inline-flex items-center gap-2 rounded-xl bg-brand px-4 py-2.5 text-xs font-semibold text-brand-foreground shadow-sm transition-all hover:brightness-110 active:scale-95"
-              >
-                <Download className="h-4 w-4" />
-                <span>Download Source ZIP</span>
-              </button>
-
+            <div className="flex flex-wrap sm:flex-col items-stretch gap-3 shrink-0">
               <a
-                href="https://github.com/techbros9694-cpu/youtube-to-mp3-opensource"
+                href="https://github.com/ai-playground-arc-1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-glass-border bg-surface-1 px-4 py-2.5 text-xs font-semibold text-foreground transition-colors hover:bg-surface-2"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-5 py-2.5 text-xs font-semibold text-brand-foreground shadow-sm transition-all hover:brightness-110 active:scale-95"
               >
-                <Github className="h-4 w-4" />
-                <span>View Repository</span>
+                <Globe className="h-4 w-4" />
+                <span>Visit Organization</span>
                 <ExternalLink className="h-3 w-3 opacity-70" />
               </a>
 
               <a
-                href="https://github.com/techbros9694-cpu"
+                href="https://github.com/ai-playground-arc-1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-glass-border bg-surface-2 px-4 py-2.5 text-xs font-semibold text-foreground transition-colors hover:bg-surface-3"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-glass-border bg-surface-1 px-5 py-2.5 text-xs font-semibold text-foreground transition-colors hover:bg-surface-2"
               >
-                <Users className="h-4 w-4 text-brand" />
-                <span>TechBros Profile</span>
+                <Github className="h-4 w-4" />
+                <span>View GitHub</span>
                 <ExternalLink className="h-3 w-3 opacity-70" />
               </a>
             </div>
           </div>
 
-          {/* Terminal git clone box */}
-          <div className="rounded-2xl border border-glass-border bg-surface-1/80 p-4">
-            <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
-              <span className="font-mono text-[11px]">Git Clone Command</span>
-              <span className="text-brand text-[11px]">Repository</span>
-            </div>
-            <div className="flex items-center justify-between gap-3 rounded-xl bg-background/90 px-3.5 py-2.5 font-mono text-xs text-foreground border border-glass-border overflow-x-auto">
-              <code className="whitespace-nowrap">{cloneCommand}</code>
-              <button
-                onClick={handleCopyCommand}
-                className="flex items-center gap-1.5 rounded-lg bg-surface-2 px-2.5 py-1 text-xs font-sans text-foreground transition-colors hover:bg-surface-3 shrink-0"
-              >
-                {copiedCmd ? (
-                  <>
-                    <Check className="h-3.5 w-3.5 text-emerald-500" />
-                    <span className="text-emerald-500 text-[11px]">Copied</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="h-3.5 w-3.5" />
-                    <span className="text-[11px]">Copy</span>
-                  </>
-                )}
-              </button>
-            </div>
+          {/* Organization Badges */}
+          <div className="pt-4 border-t border-glass-border flex flex-wrap items-center gap-2 sm:gap-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-surface-2 px-3.5 py-1.5 text-xs font-medium text-foreground border border-glass-border">
+              <Check className="h-3.5 w-3.5 text-emerald-500" />
+              Open Source
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-surface-2 px-3.5 py-1.5 text-xs font-medium text-foreground border border-glass-border">
+              <Check className="h-3.5 w-3.5 text-emerald-500" />
+              Community Driven
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-surface-2 px-3.5 py-1.5 text-xs font-medium text-foreground border border-glass-border">
+              <Check className="h-3.5 w-3.5 text-emerald-500" />
+              Modern Development
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-surface-2 px-3.5 py-1.5 text-xs font-medium text-foreground border border-glass-border">
+              <Check className="h-3.5 w-3.5 text-emerald-500" />
+              Built with Collaboration
+            </span>
           </div>
         </div>
       </motion.div>
