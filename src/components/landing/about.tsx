@@ -21,7 +21,7 @@ import { AmbientBackground } from "./ambient-background";
 export function AboutUs() {
   const [copiedCmd, setCopiedCmd] = useState(false);
 
-  const cloneCommand = "git clone https://github.com/techbros9694-cpu/youtube-to-mp3-converter.git";
+  const cloneCommand = "git clone https://github.com/techbros9694-cpu/youtube-to-mp3-opensource.git";
 
   const handleCopyCommand = () => {
     navigator.clipboard.writeText(cloneCommand);
@@ -31,7 +31,7 @@ export function AboutUs() {
 
   const handleDownloadCodebase = () => {
     const link = document.createElement("a");
-    link.href = "https://github.com/techbros9694-cpu/youtube-to-mp3-converter/archive/refs/heads/main.zip";
+    link.href = "https://github.com/techbros9694-cpu/youtube-to-mp3-opensource/archive/refs/heads/main.zip";
     link.target = "_blank";
     link.rel = "noopener noreferrer";
     document.body.appendChild(link);
@@ -255,7 +255,7 @@ export function AboutUs() {
               </button>
 
               <a
-                href="https://github.com/techbros9694-cpu/youtube-to-mp3-converter"
+                href="https://github.com/techbros9694-cpu/youtube-to-mp3-opensource"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl border border-glass-border bg-surface-1 px-4 py-2.5 text-xs font-semibold text-foreground transition-colors hover:bg-surface-2"

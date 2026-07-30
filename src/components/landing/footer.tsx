@@ -49,7 +49,7 @@ export function Footer() {
               TechBros GitHub
             </a>
             <a
-              href="https://github.com/techbros9694-cpu/youtube-to-mp3-converter"
+              href="https://github.com/techbros9694-cpu/youtube-to-mp3-opensource"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-foreground"
