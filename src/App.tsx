@@ -33,6 +33,17 @@ function AppContent() {
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
         setView("home");
+        if (hash && hash !== "#" && hash !== "#top") {
+          setTimeout(() => {
+            const targetId = hash.replace("#", "");
+            const elem = document.getElementById(targetId);
+            if (elem) {
+              elem.scrollIntoView({ behavior: "smooth" });
+            }
+          }, 100);
+        } else {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
       }
     };
 

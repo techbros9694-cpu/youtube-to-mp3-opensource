@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link2, Sparkles, ArrowRight, Loader2 } from "lucide-react";
 import { useConverter } from "@/hooks/use-converter";
